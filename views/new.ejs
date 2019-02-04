@@ -1,0 +1,30 @@
+<% include ./partial/header %>
+ 
+
+<div class="card">
+    <div class="thum">
+        
+         <form action="/new" method="POST" enctype="multipart/form-data" >
+          <input type="file" accept="image/*" name="image" id="image" required>
+        
+     
+   
+  </div>
+    
+    <div class="thumbnail">
+    <table class="dis">
+      
+      <input type='text' name="new_data[text]" placeholder="description">
+      <input type="text" name= "new_data[bid]" placeholder="Bid" >
+       <button type="submit">submit</button>
+    
+      </div>
+    
+      </table>
+    </div>
+</form>
+    
+     
+  </div>
+
+  <% include ./partial/footer %>

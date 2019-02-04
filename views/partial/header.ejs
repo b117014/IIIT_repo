@@ -2,13 +2,13 @@
 <!doctype html>
 <html>
 <head>
-	<title>Mess</title>
+	<title>Bid</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/ type="text/css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="/stylesheet/profile.css" type="text/css">
 	
-   <link rel="shortcut icon" href="http://aux2.iconspalace.com/uploads/357282056335121772.png" />
+
 	 <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
    <script
   src="https://code.jquery.com/jquery-3.3.1.js"
@@ -23,7 +23,7 @@
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css">
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="/stylesheet/main.css" type="text/css">
+  <link rel="stylesheet" href="/add_bid.css" type="text/css">
   <link rel="stylesheet" href="/stylesheet/new.css" type="text/css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -70,10 +70,10 @@
 
 
 	<div class='ui inverted stackable menu' id="nave">
-  <a class='item' href="/land">Home</a>
-  <a class="item" href="/mess/book">Mess1</a>
-  <a class="item" href="/mess2/book">Mess2</a>
-  <a class="item" href="/mess/book/comments">Comment</a>
+  <a class='item' href="/dashboard">Home</a>
+  <a class="item" href="/new">Add</a>
+ 
+
 
   <div class="right menu">
    
@@ -95,14 +95,5 @@
  
 </div>
 
-      <% if(success && success.length>0){%>
-	<div class="alert alert-success" id="alert" >
-  <strong><%= success%></strong>
-</div>
-	     <%}%>
-	  <% if(error && error.length>0){%>
-	<div class="alert alert-success">
-  <strong><%=error%></strong>
-</div>
-	      <%}%>
+
 
