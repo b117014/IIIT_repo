@@ -1,0 +1,16 @@
+<%include ../partial/header %>
+
+<div>
+
+<%data.forEach((data)=>{%>
+	<div>
+	<img src="<%= data.img%>"  >
+	<p><%=data.text%></p>
+	<h3><%=data.bid%></h3>
+	</div>
+<% })%>
+
+</div>
+
+
+<% include ../partial/footer %>

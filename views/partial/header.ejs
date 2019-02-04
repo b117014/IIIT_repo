@@ -1,0 +1,108 @@
+
+<!doctype html>
+<html>
+<head>
+	<title>Mess</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/ type="text/css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/stylesheet/profile.css" type="text/css">
+	
+   <link rel="shortcut icon" href="http://aux2.iconspalace.com/uploads/357282056335121772.png" />
+	 <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+   <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+<script src="semantic/dist/semantic.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css">
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/stylesheet/main.css" type="text/css">
+  <link rel="stylesheet" href="/stylesheet/new.css" type="text/css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/stylesheet/ex.js"></script>
+
+
+ 
+</head>
+<body>
+	
+		
+
+   <!--  <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/land">Home</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/mess/book" class="item">Mess1</a></li>
+            <li><a href="/mess2/book" class="item">Mess2</a></li>
+            <li><a href="/mess/book/comments" class="item">Comment</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <%if(!current_user){%>
+               <li><a href="/login" class="item">Login</a></li>
+               <li><a href="/register" class="item">SignUp</a></li>
+               <%}else{%>
+               <li><a href="/logout" class="item">Logout</a></li>
+               <%}%>
+           </ul>
+
+        </div>
+      </div>
+    </nav> -->
+
+
+
+	<div class='ui inverted stackable menu' id="nave">
+  <a class='item' href="/land">Home</a>
+  <a class="item" href="/mess/book">Mess1</a>
+  <a class="item" href="/mess2/book">Mess2</a>
+  <a class="item" href="/mess/book/comments">Comment</a>
+
+  <div class="right menu">
+   
+    <%if(!current_user){%>
+    
+		<a href="/login" class="item">Login</a>
+	    <a href="/register" class="item">Register</a>
+					<%}else{%>
+	    <a href="/logout" class="item">Logout</a>
+     
+        <a href="/profile/<%=current_user.id%>" class="item"><img src="<%=current_user.image %>"  height="30" width="30" class="img-circle"></a>
+       
+
+       
+					<%}%>
+   
+  </div>
+ 
+ 
+</div>
+
+      <% if(success && success.length>0){%>
+	<div class="alert alert-success" id="alert" >
+  <strong><%= success%></strong>
+</div>
+	     <%}%>
+	  <% if(error && error.length>0){%>
+	<div class="alert alert-success">
+  <strong><%=error%></strong>
+</div>
+	      <%}%>
+
