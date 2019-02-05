@@ -13,3 +13,18 @@
    padding-top:auto;
    margin-left:33%;
  }
+
+ .description{
+     margin-left:60%;
+     transform:translateY(-1000%);
+ }
+
+ .bid{
+     margin-left:60%;
+     transform:translateY(-500%);
+ }
+
+ .btn_bid{
+     margin-left:80%;
+     transform:translateY(-680%);
+ }

@@ -8,6 +8,8 @@ var   express   =   require('express'),
       User        =  require('./models/user'),
       multer      =   require('multer'),
       cloudinary  =    require('cloudinary'),
+      middleware  =     require('./middleware/index'),
+      override    =      require('method-override'),
        app  =   express();
 
 
@@ -17,6 +19,8 @@ const keyPublishable = "pk_test_EcDcCoAGVRMU3RPq8ZY6Xyri";
        mongoose.connect('mongodb://localhost/bid');
      
           app.use(bodyparser.urlencoded({extended:true}));
+          app.use(override("_method"));
+
        app.use(express.static(__dirname+"/public"));
        app.set("view engine","ejs");
 
@@ -81,7 +85,7 @@ const keyPublishable = "pk_test_EcDcCoAGVRMU3RPq8ZY6Xyri";
      	  bid.find({}).then((data)=>res.render('dashboard',{data:data})).catch((err)=>console.log(err));
      })
      
-     app.get('/new',(req,res)=>{
+     app.get('/new',middleware.isloggedin,(req,res)=>{
      	  res.render('new');
      })
     
@@ -96,6 +100,21 @@ const keyPublishable = "pk_test_EcDcCoAGVRMU3RPq8ZY6Xyri";
      })
 
 
+   app.get('/dashboard/:id',middleware.isloggedin,(req,res)=>{
+            bid.findById(req.params.id).then((data)=>res.render('update_bid',{data:data})).catch((err)=>console.log(err))
+   })
+
+
+     app.put('/dashboard/:id',(req,res)=>{
+           
+           bid.findByIdAndUpdate(req.params.id,req.body.update_bit)
+           .then((data)=>{
+                data.author.id= req.user.id;
+                data.author.username = req.user.username;
+                data.save();
+              res.redirect('/dashboard')})
+           .catch((err)=>console.log(err))
+     })
 
 
        //=========================
@@ -128,7 +147,7 @@ const keyPublishable = "pk_test_EcDcCoAGVRMU3RPq8ZY6Xyri";
    })
 
    app.post("/login" , passport.authenticate("local",{
- 	                 successRedirect:"/land",
+ 	                 successRedirect:"/dashboard",
  	                 failureRedirect:"/login"
  }), function(req,res){});
 
@@ -141,4 +160,4 @@ const keyPublishable = "pk_test_EcDcCoAGVRMU3RPq8ZY6Xyri";
 
 
 
- app.listen(3000);
+ app.listen(1000);

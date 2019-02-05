@@ -2,15 +2,23 @@
 
 <div>
 
-<%data.forEach((data)=>{%>
+<%data.map(function(data){%>
+	
 	<div  class="card">
 	<img src="<%= data.image%>" height='200' width='200' >
-	<p><%=data.text%></p>
-	<h3><%=data.Bid%></h3>
+	<p class="description"><%=data.text%></p>
+	<h3 class="bid"><%=data.bid%></h3>
+	<%var time = data.time%>
+   
+	
+	<button class="btn_bid"><a href="/dashboard/<%= data._id %>">Bid</a></button>
+  
 	</div>
+	
 <% })%>
 
 </div>
+
 
 
 <% include ./partial/footer %>
