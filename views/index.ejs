@@ -1,0 +1,15 @@
+<% include ./partial/header %>
+
+<div  class="card">
+        <img src="<%= data.image%>" height='200' width='200' >
+        <p class="description"><%=data.text%></p>
+        <h3 class="bid"><%=data.bid%></h3>
+       
+       
+        
+        <button class="btn_bid"><a href="/dashboard/<%= data._id %>">Bid</a></button>
+      
+        </div>
+
+
+<% include ./partial/footer %>

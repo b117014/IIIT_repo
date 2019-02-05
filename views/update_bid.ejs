@@ -38,10 +38,16 @@ if (distance < 0) {
        <img src="<%=data.image%>" height="200" width="200">
        <p><%=data.text%></p>
        <input type="text" value="<%=data.bid%>" name="update_bit[bid]">
-       <p><%=data.time%></p>
-      
-       <h5 id="demo"><script>hello("<%=data.time%>")</script></h5>
-       <button>Bit</button>
+
+        <%data.clients_username.forEach((data)=>{%>
+            <h3><%=data.username%></h3> <strong><%=data.cost%></strong>
+        <%})%>
+    
+       <h3 id="demo"><script>hello("<%=data.time%>")</script></h3>
+         
+          
+               <button>submit</button>
+             
     </form>
 </div>
 

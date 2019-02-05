@@ -80,9 +80,25 @@ const keyPublishable = "pk_test_EcDcCoAGVRMU3RPq8ZY6Xyri";
  
 
 
-
+ function escapeRegex(text) {
+  return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+};
      app.get('/dashboard',(req,res)=>{
-     	  bid.find({}).then((data)=>res.render('dashboard',{data:data})).catch((err)=>console.log(err));
+      if(req.query.fuzzy)
+      {
+          const regex = new RegExp(escapeRegex(req.query.fuzzy),"gi");
+          bid.find({"title":regex},function(err,data){
+              if(err){
+                  console.log(err);
+              }else{
+                  res.render("dashboard",{data:data});
+              }
+          })
+      }
+      
+      
+         bid.find({}).then((data)=>res.render('dashboard',{data:data})).catch((err)=>console.log(err));
+     
      })
      
      app.get('/new',middleware.isloggedin,(req,res)=>{
@@ -106,15 +122,38 @@ const keyPublishable = "pk_test_EcDcCoAGVRMU3RPq8ZY6Xyri";
 
 
      app.put('/dashboard/:id',(req,res)=>{
-           
-           bid.findByIdAndUpdate(req.params.id,req.body.update_bit)
+           bid.findById(req.params.id)
            .then((data)=>{
-                data.author.id= req.user.id;
-                data.author.username = req.user.username;
-                data.save();
-              res.redirect('/dashboard')})
-           .catch((err)=>console.log(err))
+              console.log(data.bid);
+              console.log(req.body.update_bit)
+               if(data.bid>req.body.update_bit.bid){
+                 res.redirect('/dashboard');
+               }else{
+                bid.findByIdAndUpdate(req.params.id,req.body.update_bit)
+                .then((data)=>{
+                    const username =req.user.username;
+                    
+                     data.clients_username.push({username:username,cost:req.body.update_bit.bid});
+                    
+                     data.save();
+                     console.log(data.clients_username.username);
+                   res.redirect('/dashboard')})
+                .catch((err)=>console.log(err))
+               }
+           })
+           .catch((err)=>console.log(err));
+         
      })
+
+    //======================
+    // Fuzzy search
+    //======================
+
+  
+
+ 
+
+
 
 
        //=========================
@@ -160,4 +199,4 @@ const keyPublishable = "pk_test_EcDcCoAGVRMU3RPq8ZY6Xyri";
 
 
 
- app.listen(1000);
+ app.listen(5000);
