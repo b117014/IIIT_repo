@@ -2,6 +2,11 @@
 
 # Video Link of My project
    https://drive.google.com/file/d/1ABTOlYAuLyjACa8XsPe_eg4O_CUc0lNG/view
+   
+   
+   
+ # Deploy By heroku
+  https://secure-crag-91548.herokuapp.com/
 
 #  Install Application 
     -> use “npm install “ command to install all package.
@@ -39,3 +44,5 @@
 -> There is Search bar on dasboard web page .
 -> If You want to search any item through title ,you can search it.
 -> After Searching ,the particular item will come and you can bid this.
+
+
