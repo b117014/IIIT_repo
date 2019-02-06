@@ -4,9 +4,7 @@
    https://drive.google.com/file/d/1ABTOlYAuLyjACa8XsPe_eg4O_CUc0lNG/view
    
    
-   
- # Deploy By heroku
-  https://secure-crag-91548.herokuapp.com/
+  
 
 #  Install Application 
     -> use “npm install “ command to install all package.
